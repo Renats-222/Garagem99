@@ -21,4 +21,8 @@ public class VeiculosService {
         List<Veiculo> result = veiculoRepository.findAll();
         return result.stream().map(VeiculoDTO::new).collect(Collectors.toList());
     }
+     public List<VeiculoDTO> findByMarca(String marca) {
+    List<Veiculo> result = veiculoRepository.findByMarcaIgnoreCase(marca);
+    return result.stream().map(VeiculoDTO::new).toList();
+}
 }
