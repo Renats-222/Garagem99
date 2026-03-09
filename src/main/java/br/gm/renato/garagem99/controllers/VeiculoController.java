@@ -1,6 +1,7 @@
 package br.gm.renato.garagem99.controllers;
 
 import br.gm.renato.garagem99.DTO.VeiculoDTO;
+import br.gm.renato.garagem99.entities.Veiculo;
 import br.gm.renato.garagem99.service.VeiculosService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,21 @@ public class VeiculoController {
         return result;
     }
 
+<<<<<<< HEAD
     @GetMapping("/marca/{marca}")
     public ResponseEntity<List<VeiculoDTO>> findByMarca(@PathVariable String marca) {
 
         List<VeiculoDTO> result = veiculosService.findByMarca(marca);
 
         if (result.isEmpty()) {
+=======
+    @GetMapping("/forsale/{id}")
+    public ResponseEntity<Veiculo> findById(@PathVariable Long id) {
+
+        Veiculo result = veiculosService.findById(id);
+
+        if (result == null) {
+>>>>>>> 8750683 (Término da Fase 3)
             return ResponseEntity.notFound().build();
         }
 
