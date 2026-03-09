@@ -22,25 +22,14 @@ public class VeiculoController {
 
     @GetMapping("/forsale")
     public List<VeiculoDTO> findAll() {
-        List<VeiculoDTO> result = veiculosService.findAll();
-        return result;
+        return veiculosService.findAll();
     }
 
-<<<<<<< HEAD
-    @GetMapping("/marca/{marca}")
-    public ResponseEntity<List<VeiculoDTO>> findByMarca(@PathVariable String marca) {
-
-        List<VeiculoDTO> result = veiculosService.findByMarca(marca);
-
-        if (result.isEmpty()) {
-=======
     @GetMapping("/forsale/{id}")
     public ResponseEntity<Veiculo> findById(@PathVariable Long id) {
-
         Veiculo result = veiculosService.findById(id);
 
         if (result == null) {
->>>>>>> 8750683 (Término da Fase 3)
             return ResponseEntity.notFound().build();
         }
 
@@ -49,17 +38,11 @@ public class VeiculoController {
 
     @GetMapping("/color/{cor}")
     public List<VeiculoDTO> findByCor(@PathVariable String cor) {
-
-        List<VeiculoDTO> result = veiculosService.findByCor(cor);
-
-        return result;
+        return veiculosService.findByCor(cor);
     }
+
     @GetMapping("/year/{ano}")
     public List<VeiculoDTO> findByAno(@PathVariable Integer ano) {
-
-    List<VeiculoDTO> result = veiculosService.findByAno(ano);
-
-    return result;
-}
-
+        return veiculosService.findByAno(ano);
+    }
 }

@@ -13,7 +13,6 @@ import br.gm.renato.garagem99.entities.Veiculo;
 public class VeiculoDTO {
 
     private Long id;
-    private String nome;
     private String marca;
     private String modelo;
     private String cor;
@@ -36,10 +35,6 @@ public class VeiculoDTO {
 
     public Long getId() {
         return id;
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public String getMarca() {
