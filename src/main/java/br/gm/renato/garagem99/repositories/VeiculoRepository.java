@@ -10,5 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author digma
  */
 public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
-    List<Veiculo> findByMarcaIgnoreCase(String marca);
+   List<Veiculo> findByCorIgnoreCase(String cor);
+   List<Veiculo> findByAno(Integer ano);
 }

@@ -47,4 +47,19 @@ public class VeiculoController {
         return ResponseEntity.ok(result);
     }
 
+    @GetMapping("/color/{cor}")
+    public List<VeiculoDTO> findByCor(@PathVariable String cor) {
+
+        List<VeiculoDTO> result = veiculosService.findByCor(cor);
+
+        return result;
+    }
+    @GetMapping("/year/{ano}")
+    public List<VeiculoDTO> findByAno(@PathVariable Integer ano) {
+
+    List<VeiculoDTO> result = veiculosService.findByAno(ano);
+
+    return result;
+}
+
 }
