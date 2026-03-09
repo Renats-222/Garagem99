@@ -21,8 +21,15 @@ public class VeiculoController {
     private VeiculosService veiculosService;
 
     @GetMapping("/forsale")
-    public List<VeiculoDTO> findAll() {
-        return veiculosService.findAll();
+    public ResponseEntity<List<VeiculoDTO>> findAll() {
+
+        List<VeiculoDTO> result = veiculosService.findAll();
+
+        if (result.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/forsale/{id}")
@@ -37,12 +44,26 @@ public class VeiculoController {
     }
 
     @GetMapping("/color/{cor}")
-    public List<VeiculoDTO> findByCor(@PathVariable String cor) {
-        return veiculosService.findByCor(cor);
+    public ResponseEntity<List<VeiculoDTO>> findByCor(@PathVariable String cor) {
+
+        List<VeiculoDTO> result = veiculosService.findByCor(cor);
+
+        if (result.isEmpty()) {
+            return ResponseEntity.notFound().build(); // 404
+        }
+
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/year/{ano}")
-    public List<VeiculoDTO> findByAno(@PathVariable Integer ano) {
-        return veiculosService.findByAno(ano);
+    public ResponseEntity<List<VeiculoDTO>> findByAno(@PathVariable Integer ano) {
+
+        List<VeiculoDTO> result = veiculosService.findByAno(ano);
+
+        if (result.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(result);
     }
 }
